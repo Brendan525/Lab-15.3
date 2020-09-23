@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Dapper;
 using Dapper.Contrib.Extensions;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Lab_15._3.Controllers
 {
@@ -13,5 +15,12 @@ namespace Lab_15._3.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
+        private IDbConnection _db;
+        public CategoryController(IDbConnection db)
+        {
+            _db = db;
+        }
+
+
     }
 }

@@ -7,7 +7,7 @@ using Dapper.Contrib.Extensions;
 
 namespace Lab_15._3
 {
-    [Table("Product")]
+    [Table("Products")]
     public class Product
     {
 

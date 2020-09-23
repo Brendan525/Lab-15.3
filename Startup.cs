@@ -27,8 +27,8 @@ namespace Lab_15._3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
-            string connstring = Configuration.GetConnectionString("wdb"); 
+            services.AddControllers();
+            string connstring = Configuration.GetConnectionString("brendan"); 
             services.AddTransient<IDbConnection>((sp) => new SqlConnection(connstring));
         }
 

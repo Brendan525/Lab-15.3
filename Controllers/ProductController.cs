@@ -14,10 +14,31 @@ namespace Lab_15._3.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private IDbConnection _db;
+        public IDbConnection _db;
         public ProductController(IDbConnection db)
         {
             _db = db;
+        }
+
+        [HttpGet]
+        public List<Product> Products()
+        {
+            List<Product> products = DAL.ReadProducts(_db);
+            return products;
+        } 
+
+        [HttpGet("Names")]
+        public List<string> GetProductNames()
+        {
+            List<string> products = DAL.GetProductName(_db);
+            return products;
+        }
+
+        [HttpPost("New/{productName}/{discontinued}")]
+        public static Product NewProduct( string productName, bool discontinued)
+        {
+            Product prod = DAL.Create(_db, productName, discontinued);
+            return prod; 
         }
     }
 }

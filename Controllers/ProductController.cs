@@ -34,7 +34,16 @@ namespace Lab_15._3.Controllers
             return products;
         }
 
-        [HttpPost("New/{productName}/{supplierid}/{categoryid}/{quantityperunit}/{unitprice}/{unitsinstock}/{unitsonorder}/{reorderlevel}")]
+        [HttpPost("NewProduct")]
+        [Consumes("application/json")]
+
+        public  long NewProduct([FromBody] Product prod)
+        {
+            long productID = DAL.Create(_db, prod);
+            return productID;
+        }
+        
+        /*[HttpPost("New/{productName}/{supplierid}/{categoryid}/{quantityperunit}/{unitprice}/{unitsinstock}/{unitsonorder}/{reorderlevel}")]
         public Product NewProduct( string productName, int supplierid, int categoryid, string quantityperunit, decimal unitprice, int unitsinstock, int unitsonorder, int reorderlevel)
         {
             Product prod = new Product();
@@ -42,7 +51,7 @@ namespace Lab_15._3.Controllers
             return prod; 
 
             //Hello
-        }
+        }*/
 
         
     }

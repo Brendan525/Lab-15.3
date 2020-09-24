@@ -23,10 +23,10 @@ namespace Lab_15._3
             return _db.Query<string>(query).ToList(); 
         }
 
-        public static Product Create(string productName, int supplierid, int categoryid, string quantityperunit, decimal unitprice, int unitsinstock, int unitsonorder, int reorderlevel, IDbConnection _db)
+        public static long Create(IDbConnection _db, Product newProduct)
         {
-            Product newProduct = new Product()
-            {
+            /*Product newProduct = new Product()
+     
                 ProductName = productName,
                 SupplierID = supplierid,
                 CategoryID = categoryid,
@@ -36,10 +36,10 @@ namespace Lab_15._3
                 UnitsOnOrder = unitsonorder,
                 ReorderLevel = reorderlevel, 
                 Discontinued = 0
-            };
+            };*/
 
-            _db.Insert(newProduct);
-            return null;
+            long id = _db.Insert<Product>(newProduct);
+            return id;
         }
     }
 }

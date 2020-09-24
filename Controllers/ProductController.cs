@@ -40,6 +40,8 @@ namespace Lab_15._3.Controllers
             Product prod = new Product();
             prod = DAL.Create(productName,supplierid,categoryid,quantityperunit,unitprice,unitsinstock,unitsonorder,reorderlevel, _db);
             return prod; 
+
+            //Hello
         }
 
         

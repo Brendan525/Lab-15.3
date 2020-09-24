@@ -55,9 +55,9 @@ namespace Lab_15._3
             return _db.Query<string>(query).ToList();
         }
 
-        public static long NewEmployee(IDbConnection _db, Employees emp)
+        public static long CreateCategory(IDbConnection _db, Category newCategory)
         {
-            long id = _db.Insert<Employees>(emp);
+            long id = _db.Insert<Category>(newCategory);
             return id;
         }
     }

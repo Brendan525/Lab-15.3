@@ -43,5 +43,14 @@ namespace Lab_15._3.Controllers
             return products;
         }
 
+        [HttpPost("NewCategory")]
+        [Consumes("application/json")]
+
+        public long NewCategory([FromBody] Category cat)
+        {
+            long CategoryID = DAL.CreateCategory(_db, cat);
+            return CategoryID;
+        }
+
     }
 }

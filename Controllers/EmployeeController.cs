@@ -34,14 +34,6 @@ namespace Lab_15._3.Controllers
             return employees;
         }
 
-        [HttpPost("NewEmployee")]
-        [Consumes("application/json")]
-
-        public long NewEmployee([FromBody] Employees emp)
-        {
-            long EmployeeID = DAL.NewEmployee(_db, emp);
-            return EmployeeID;
-        }
     }
 
 

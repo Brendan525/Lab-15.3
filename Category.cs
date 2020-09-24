@@ -7,14 +7,14 @@ using Dapper.Contrib.Extensions;
 
 namespace Lab_15._3
 {
-    [Table("Category")]
+    [Table("Categories")]
     public class Category
     {
         [Key]
         public long CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
-        public string Picture { get; set; }
+        //public string Picture { get; set; }
 
     }
 }

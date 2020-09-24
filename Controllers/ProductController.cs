@@ -39,7 +39,7 @@ namespace Lab_15._3.Controllers
 
         public  long NewProduct([FromBody] Product prod)
         {
-            long productID = DAL.Create(_db, prod);
+            long productID = DAL.CreateProduct(_db, prod);
             return productID;
         }    
         

@@ -25,7 +25,7 @@ namespace Lab_15._3
         public string Country { get; set; }
         public string HomePhone { get; set; }
         public string Extension { get; set; }
-        public string Photo { get; set; }
+        //public int Photo { get; set; }
         public string Notes { get; set; }
         public int ReportsTo { get; set; }
         public string PhotoPath { get; set; }

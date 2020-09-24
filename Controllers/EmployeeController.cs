@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Dapper;
-using Dapper.Contrib.Extensions;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using Dapper.Contrib.Extensions;
 
 namespace Lab_15._3.Controllers
 {
@@ -28,18 +27,20 @@ namespace Lab_15._3.Controllers
             return employees;
         }
 
-        //[HttpGet("All")]
-        //public List<Employees> Employees()
-        //{
-        //    List<Employees> employees = DAL.ReadEmployees(_db);
-        //    return employees;
-        //}
-
         [HttpGet("Names")]
         public List<string> GetEmployeesNames()
         {
             List<string> employees = DAL.GetEmployeeName(_db);
             return employees;
+        }
+
+        [HttpPost("NewEmployee")]
+        [Consumes("application/json")]
+
+        public long NewEmployee([FromBody] Employees emp)
+        {
+            long EmployeeID = DAL.NewEmployee(_db, emp);
+            return EmployeeID;
         }
     }
 

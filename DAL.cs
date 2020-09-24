@@ -23,7 +23,7 @@ namespace Lab_15._3
             return _db.Query<string>(query).ToList(); 
         }
 
-        public static long Create(IDbConnection _db, Product newProduct)
+        public static long CreateProduct(IDbConnection _db, Product newProduct)
         {
             long id = _db.Insert<Product>(newProduct);
             return id;
@@ -53,6 +53,12 @@ namespace Lab_15._3
             string query = $"SELECT FirstName FROM Employees";
  
             return _db.Query<string>(query).ToList();
+        }
+
+        public static long NewEmployee(IDbConnection _db, Employees emp)
+        {
+            long id = _db.Insert<Employees>(emp);
+            return id;
         }
     }
 }

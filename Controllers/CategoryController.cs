@@ -4,10 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Dapper;
-using Dapper.Contrib.Extensions;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
+using Dapper.Contrib.Extensions;
 
 namespace Lab_15._3.Controllers
 {

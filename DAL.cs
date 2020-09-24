@@ -23,17 +23,23 @@ namespace Lab_15._3
             return _db.Query<string>(query).ToList(); 
         }
 
-        public static Product Create(IDbConnection _db, string productName, bool discontinued)
+        public static Product Create(string productName, int supplierid, int categoryid, string quantityperunit, decimal unitprice, int unitsinstock, int unitsonorder, int reorderlevel, IDbConnection _db)
         {
             Product newProduct = new Product()
             {
                 ProductName = productName,
-                Discontinued = discontinued
+                SupplierID = supplierid,
+                CategoryID = categoryid,
+                QuantityPerUnit = quantityperunit,
+                UnitPrice = unitprice,
+                UnitsInStock = unitsinstock,
+                UnitsOnOrder = unitsonorder,
+                ReorderLevel = reorderlevel, 
+                Discontinued = 0
             };
 
             _db.Insert(newProduct);
-            return newProduct;
-
+            return null;
         }
     }
 }

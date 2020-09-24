@@ -25,7 +25,7 @@ namespace Lab_15._3.Controllers
         {
             List<Product> products = DAL.ReadProducts(_db);
             return products;
-        } 
+        }
 
         [HttpGet("Names")]
         public List<string> GetProductNames()
@@ -34,11 +34,14 @@ namespace Lab_15._3.Controllers
             return products;
         }
 
-        [HttpPost("New/{productName}/{discontinued}")]
-        public static Product NewProduct( string productName, bool discontinued)
+        [HttpPost("New/{productName}/{supplierid}/{categoryid}/{quantityperunit}/{unitprice}/{unitsinstock}/{unitsonorder}/{reorderlevel}")]
+        public Product NewProduct( string productName, int supplierid, int categoryid, string quantityperunit, decimal unitprice, int unitsinstock, int unitsonorder, int reorderlevel)
         {
-            Product prod = DAL.Create(_db, productName, discontinued);
+            Product prod = new Product();
+            prod = DAL.Create(productName,supplierid,categoryid,quantityperunit,unitprice,unitsinstock,unitsonorder,reorderlevel, _db);
             return prod; 
         }
+
+        
     }
 }

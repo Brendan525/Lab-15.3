@@ -23,8 +23,8 @@ namespace Lab_15._3
 
         public int UnitsInStock { get; set; }
         public int UnitsOnOrder { get; set; }
-        public int ReorderLever { get; set; }
-        public bool Discontinued { get; set; }
+        public int ReorderLevel { get; set; }
+        public int Discontinued { get; set; }
 
 
     }

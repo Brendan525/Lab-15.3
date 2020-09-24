@@ -11,7 +11,7 @@ namespace Lab_15._3
     public class Product
     {
 
-        [ExplicitKey]
+        [Key]
         public long ProductID { get; set; }
 
         public string ProductName { get; set; }

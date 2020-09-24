@@ -21,6 +21,28 @@ namespace Lab_15._3.Controllers
             _db = db;
         }
 
+        [HttpGet("SearchByDescription/{search}")]
+        public List<string> DescriptionSearch(string search)
+        {
+            List<string> products = DAL.CategorySearch(_db, search);
+            return products;
+        }
+
+        [HttpGet("SearchByCategory/{search}")]
+        public List<string> CategorySearch(string search)
+        {
+            List<string> products = DAL.DescriptionDetails(_db, search);
+            
+            if (products.Count > 0)
+            {
+                return products;
+            }
+            else
+            {
+                products.Add("Category does not exist");
+            }
+            return products;
+        }
 
     }
 }

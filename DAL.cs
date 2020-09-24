@@ -25,21 +25,21 @@ namespace Lab_15._3
 
         public static long Create(IDbConnection _db, Product newProduct)
         {
-            /*Product newProduct = new Product()
-     
-                ProductName = productName,
-                SupplierID = supplierid,
-                CategoryID = categoryid,
-                QuantityPerUnit = quantityperunit,
-                UnitPrice = unitprice,
-                UnitsInStock = unitsinstock,
-                UnitsOnOrder = unitsonorder,
-                ReorderLevel = reorderlevel, 
-                Discontinued = 0
-            };*/
-
             long id = _db.Insert<Product>(newProduct);
             return id;
+        }
+
+        public static List<string> CategorySearch(IDbConnection _db, string search)
+        {
+            string query = $"SELECT CategoryName FROM categories WHERE description like '%{search}%'  ";
+            return _db.Query<string>(query).ToList();
+        }
+
+        public static List<string> DescriptionDetails(IDbConnection _db, string search)
+        {
+            string query = $"SELECT Description FROM categories WHERE CategoryName = '{search}'  ";
+            
+            return _db.Query<string>(query).ToList();
         }
     }
 }

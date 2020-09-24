@@ -20,39 +20,29 @@ namespace Lab_15._3.Controllers
             _db = db;
         }
 
-        [HttpGet]
+        [HttpGet] //Base Product page
         public List<Product> Products()
         {
             List<Product> products = DAL.ReadProducts(_db);
             return products;
         }
 
-        [HttpGet("Names")]
+        [HttpGet("Names")] // product/names
         public List<string> GetProductNames()
         {
             List<string> products = DAL.GetProductName(_db);
             return products;
         }
 
-        [HttpPost("NewProduct")]
+        [HttpPost("NewProduct")] // product/newitem
         [Consumes("application/json")]
 
         public  long NewProduct([FromBody] Product prod)
         {
             long productID = DAL.Create(_db, prod);
             return productID;
-        }
+        }    
         
-        /*[HttpPost("New/{productName}/{supplierid}/{categoryid}/{quantityperunit}/{unitprice}/{unitsinstock}/{unitsonorder}/{reorderlevel}")]
-        public Product NewProduct( string productName, int supplierid, int categoryid, string quantityperunit, decimal unitprice, int unitsinstock, int unitsonorder, int reorderlevel)
-        {
-            Product prod = new Product();
-            prod = DAL.Create(productName,supplierid,categoryid,quantityperunit,unitprice,unitsinstock,unitsonorder,reorderlevel, _db);
-            return prod; 
 
-            //Hello
-        }*/
-
-        
     }
 }

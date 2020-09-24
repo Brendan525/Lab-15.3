@@ -41,5 +41,18 @@ namespace Lab_15._3
             
             return _db.Query<string>(query).ToList();
         }
+
+        public static List<Employees> ReadEmployees(IDbConnection _db)
+        {
+            List<Employees> employees = _db.GetAll<Employees>().ToList();
+            return employees;
+        }
+
+        public static List<string> GetEmployeeName(IDbConnection _db)
+        {
+            string query = $"SELECT FirstName FROM Employees";
+ 
+            return _db.Query<string>(query).ToList();
+        }
     }
 }

@@ -34,6 +34,13 @@ namespace Lab_15._3.Controllers
             return employees;
         }
 
+        [HttpDelete("RemoveEmployee/{id}")]
+        public string RemoveEmployee(int id)
+        {
+            DAL.RemoveEmployeeByID(id, _db);
+            return "Record has successfully Deleted";
+        }
+
     }
 
 

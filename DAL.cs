@@ -60,5 +60,14 @@ namespace Lab_15._3
             long id = _db.Insert<Category>(newCategory);
             return id;
         }
+
+
+
+        public static void RemoveEmployeeByID(int id, IDbConnection _db)
+        {
+            string query = $"SELECT * FROM employees WHERE EmployeeID = {id}";
+            _db.Delete(new Employees() { EmployeeID = id });
+            
+        }
     }
 }

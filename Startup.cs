@@ -28,7 +28,7 @@ namespace Lab_15._3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            string connstring = Configuration.GetConnectionString("adam"); 
+            string connstring = Configuration.GetConnectionString("rick"); 
             services.AddTransient<IDbConnection>((sp) => new SqlConnection(connstring));
         }
 
